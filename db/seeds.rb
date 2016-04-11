@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Product.create(:name => "seed-generated product", :description => "Product 2")
+Product.create(:name => "seed-generated product", :description => "Product 3")
