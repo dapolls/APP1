@@ -14,16 +14,6 @@ body
   padding-top: 50px
   height: 400px
 
-  
-//nav
-.center.navbar .nav > li 
-  float:none
-  display:inline-block
-  vertical-align: top
-
-.center .navbar-inner 
-  text-align:center
-
 footer 
   position: fixed
   bottom: 0
@@ -48,3 +38,11 @@ footer p
 #apple
   position: absolute
 
+.apple
+  border-radius: 50%
+  -webkit-transition: -webkit-transform .5s ease-in-out
+  transition: transform .5s ease-in-out
+
+.apple:hover 
+  -webkit-transform: rotateY(360deg)
+  transform: rotateY(360deg)
