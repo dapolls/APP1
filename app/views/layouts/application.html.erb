@@ -25,6 +25,13 @@
         <i><%= link_to "Galactic Apples", root_path, class: "navbar-brand" %></a></i>
       </div> <!--end navbar-header -->
       <div class="navbar-collapse collapse">
+       <!-- form class="navbar-form navbar-right" role="search" -->
+        <%= form_tag("/products", method: "get", class: "navbar-form navbar-right") do %>
+          <div class="form-group">
+            <%= text_field_tag(:q) %>
+            <%= submit_tag("Search") %>
+          </div>
+        <% end %> <!-- /form -->
         <ul class="nav navbar-nav center">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Contact", static_pages_contact_path, class: "nav-link" %></li>

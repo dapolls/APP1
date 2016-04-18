@@ -5,7 +5,6 @@ body
   margin-top: 100px
   text-align: center
   font-family: 'Open Sans', sans-serif
-  color: #000
   background: 
     image: asset_url("galax.jpg")
   background-attachment: fixed
@@ -14,8 +13,18 @@ body
   padding-top: 50px
   height: 400px
 
+//nav 
+.navbar
+  font-family: 'Open Sans', sans-serif
+  background: #F0C8F2
+  color: #000
+
+.navbar-brand
+  font-weight: bolder
+
+//footer
 footer 
-  position: fixed
+  float: left
   bottom: 0
   width: 100%
   height: 50px
@@ -27,7 +36,6 @@ footer p
 //about
 #about 
   font-family: 'Open Sans', sans-serif
-  padding: 25px 50px
   margin-left: 20px
   margin-right: 20px
 
@@ -35,14 +43,22 @@ footer p
   font-family: 'Open Sans', sans-serif
   font-size: 2em
   line-height: 200%
-#apple
-  position: absolute
 
+//apple
 .apple
   border-radius: 50%
   -webkit-transition: -webkit-transform .5s ease-in-out
   transition: transform .5s ease-in-out
+  -webkit-animation: rotation 2s infinite linear
+@-webkit-keyframes rotation
+  from
+    -webkit-transform: rotate(0deg)
+  to
+    -webkit-transform: rotate(359deg)
 
-.apple:hover 
-  -webkit-transform: rotateY(360deg)
-  transform: rotateY(360deg)
+//contact
+.contact_form
+  margin: 50px
+
+.contact_btn
+  color: #000

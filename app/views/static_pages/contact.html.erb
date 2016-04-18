@@ -1,2 +1,25 @@
-<h1>StaticPages#contact</h1>
-<p>Find me in app/views/static_pages/contact.html.erb</p>
+<h1>Contact Page</h1>
+
+<%= form_tag("/static_pages/thank_you") do %>
+<div class="contact_form">
+  <div class="row">
+    <div class=".col-xs-6 .col-sm-4">
+      <div class="form-group" id="contact-form">
+        <p id="p06">Enter Name</p>
+        <%= text_field_tag :name, nil, class: "form-control"%>
+      </div> <!-- end form-group -->
+
+      <div class="form-group">
+        <p id="p06">Enter Email</p>
+       <%= text_field_tag :email, nil, class: "form-control"%>
+      </div> <!-- end form-group -->
+
+      <div class="form-group">
+        <p id="p06">Enter Your Message</p>
+       <%= text_area_tag :message, nil, class: "form-control"%>
+      </div> <!-- end form-group -->
+    </div> <!-- end col -->
+  </div> <!-- end row -->
+  <%= submit_tag "Send", class: 'btn btn-sm contact_btn' %>
+  <% end %>
+</div>
