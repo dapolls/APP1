@@ -12,46 +12,46 @@
 </head>
 <body>
 <!-- Navigation -->
-<div class="container_nav">
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#.navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <i><%= link_to "Galactic Apples", root_path, class: "navbar-brand" %></a></i>
-      </div> <!--end navbar-header -->
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse">
-        <%= form_tag("/products", method: "get", class: "navbar-form navbar-right") do %>
-        <div class="form-group">
-          <%= text_field_tag(:q) %>
-          <%= submit_tag("Search", class: "btn btn-default") %>
-          <% end %>
-        </div>
-      </div>
-        <ul class="nav navbar-nav center">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Contact", static_pages_contact_path, class: "nav-link" %></li>
-          <li><%= link_to "About", static_pages_about_path, class: "nav-link" %></li>
-          <li><%= link_to "Products", products_path, class: "nav-link" %></li>
-        </ul>
-      </div> <!--end collapse -->
-    </div> <!-- end nav container -->
-  </nav><!-- end navbar -->
-  <div class="sessionalert">
-  <% if notice %>
-  <p class="notice alert alert-info" role="alert"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-  <p class="alert alert alert-danger" role="alert"><%= alert %></p>
-  <% end %>
-  </div>
-</div><!-- end container -->
-
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Galactic Apples</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", static_pages_about_path, class: "nav-link" %></li>
+        <li><%= link_to "Products", products_path, class: "nav-link" %></li>
+        <li><%= link_to "Contact", static_pages_contact_path, class: "nav-link" %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+        <li class="navbar-right"><%= form_tag("/products", method: "get") do %>
+            <%= label_tag(:q, "Search for:", class: "searchformat") %>
+            <%= text_field_tag(:q) %>
+            <%= submit_tag("Search", class: "btn btn-default") %>
+            <%end%>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 <%= yield %>
 <div class="site-footer">
   <p>&copy; 2015 Sarah</p>
