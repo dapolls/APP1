@@ -1,32 +1,38 @@
-<h1>Welcome to Galactic Apples!</h1>
-<h2>Your source for apples from outer space</h2>
-<%= image_tag("apple.png", width: '250', height: '250', alt: 'apple', class: "apple") %>
+<div class="container">
+  <div class="row">
+    <div class=".col-xs-6 .col-sm-4">
+      <h1>Welcome to Galactic Apples!</h1>
+      <h2>Your source for apples from outer space</h2>
+      <%= image_tag("apple.png", width: '250', height: '250', alt: 'apple', class: "apple") %>
 
-<h1>Featured Products</h1>
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+      <h1>Featured Products</h1>
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
 
-  <div class="carousel-inner" role="listbox">
-    <% @products.each do |product| %>
-    <div class="item<%= " active" if product == @products.first %>">
-      <%= image_tag(product.image_url) %>
-      <div class="carousel-caption">
-        <%= product.name %>
+        <div class="carousel-inner" role="listbox">
+          <% @products.each do |product| %>
+          <div class="item<%= " active" if product == @products.first %>">
+            <%= image_tag(product.image_url) %>
+            <div class="carousel-caption">
+              <%= product.name %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
-    <% end %>
   </div>
-
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>

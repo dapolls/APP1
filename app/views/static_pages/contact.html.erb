@@ -1,25 +1,26 @@
 <h1>Contact Page</h1>
 
-<%= form_tag("/static_pages/thank_you") do %>
 <div class="contact_form">
+
+  <%= flash[:notice] %>
+
+  <%= form_tag("/static_pages/thank_you") do %>
   <div class="row">
-    <div class=".col-xs-6 .col-sm-4">
-      <div class="form-group" id="contact-form">
-        <p id="p06">Enter Name</p>
-        <%= text_field_tag :name, nil, class: "form-control"%>
-      </div> <!-- end form-group -->
-
+    <div class="col-md-4 col-md-offset-4">
       <div class="form-group">
-        <p id="p06">Enter Email</p>
-       <%= text_field_tag :email, nil, class: "form-control"%>
-      </div> <!-- end form-group -->
-
+        <%= label_tag :name, "Name" %>
+        <%= text_field_tag :name, nil, class: "form-control", placeholder: "Enter Name" %>
+      </div>      
       <div class="form-group">
-        <p id="p06">Enter Your Message</p>
-       <%= text_area_tag :message, nil, class: "form-control"%>
-      </div> <!-- end form-group -->
-    </div> <!-- end col -->
-  </div> <!-- end row -->
-  <%= submit_tag "Send", class: 'btn btn-sm contact_btn' %>
-  <% end %>
+        <%= label_tag :email, "Email Address" %>
+        <%= text_field_tag :email, nil, class: "form-control", placeholder: "Enter Email" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :message, "Message" %>
+        <%= text_area_tag :message, nil, class: "form-control", placeholder: "Enter Message" %>
+      </div>      
+    </div>
+  </div>
+<%= submit_tag "Send", class: "contact_btn" %>
+<% end %>
 </div>
