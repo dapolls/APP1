@@ -12,19 +12,9 @@
 </head>
 <body>
 
-<!-- flash login -->
-<p class="notice"><%= notice %></p>
-<% if notice %>
-    <p id="notice" class="alert alert-info"><%= notice %></p>
-<% end %>
-<p class="alert"><%= alert %></p>
-<% if alert %>
-    <p id="alert" class="alert alert-info"><%= alert %></p>
-<% end %>
-
 <!-- Navigation  -->
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+  <div class="container" id="nav">
     <!-- Brand and toggle get grouped for better mobile display-->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -63,7 +53,7 @@
       <ul class="nav pull-right">
         <li class='field'>
         <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <%= link_to('Logout', destroy_user_session_path, class: "btn btn-danger", id: "login_btn", :method => :delete) %>
         <% else %>
           <%= link_to('Login', new_user_session_path, class: "btn btn-success", id: "login_btn") %>
         <% end %>
@@ -72,7 +62,23 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<!-- alert notice -->
+  <% if alert %>
+    <div class="container">
+      <div class="row">
+        <div class=".col-xs-6 .col-md-4">
+          <p class="alert alert-danger" role="alert"><%= alert %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<!--   jquery script for alert notice -->
+  <script type="text/javascript">$(document).ready( function() {
+    $('.alert').delay(5000).fadeOut(2000);
+  });</script>
+
 <%= yield %>
+<!-- footer -->
 <div class="site-footer">
   <p>&copy; 2015 Sarah</p>
 </div>
