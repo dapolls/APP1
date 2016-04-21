@@ -56,7 +56,7 @@
         <li class="navbar-right field"><%= form_tag("/products", method: "get") do %>
             <%= label_tag(:q, "Search for:", class: "searchformat") %>
             <%= text_field_tag(:q) %>
-            <%= submit_tag("Search", type: "button", class: "btn btn-default" ) %>
+            <%= submit_tag("Search", class: "btn btn-default" ) %>
             <%end%>
         </li>
       </ul>
