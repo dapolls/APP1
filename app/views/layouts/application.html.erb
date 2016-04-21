@@ -11,10 +11,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- Navigation -->
+
+<!-- flash login -->
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<!-- Navigation  -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Brand and toggle get grouped for better mobile display-->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -42,11 +47,20 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-        <li class="navbar-right"><%= form_tag("/products", method: "get") do %>
+        <li class="navbar-right field"><%= form_tag("/products", method: "get") do %>
             <%= label_tag(:q, "Search for:", class: "searchformat") %>
             <%= text_field_tag(:q) %>
-            <%= submit_tag("Search", class: "btn btn-default") %>
+            <%= submit_tag("Search", type: "button", class: "btn btn-default" ) %>
             <%end%>
+        </li>
+      </ul>
+      <ul class="nav pull-right">
+        <li class='field'>
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path, class: "btn btn-success", id: "login_btn") %>
+        <% end %>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
