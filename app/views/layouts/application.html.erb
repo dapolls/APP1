@@ -43,23 +43,24 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-        <li class="navbar-right field"><%= form_tag("/products", method: "get") do %>
-            <%= label_tag(:q, "Search for:", class: "searchformat") %>
-            <%= text_field_tag(:q) %>
-            <%= submit_tag("Search", class: "btn btn-default" ) %>
-            <%end%>
-        </li>
-      </ul>
+      </ul>  
+      <form action="/products" accept-charset="UTF-8" method="get" class="navbar-form navbar-left">
+          <%= form_tag("/products", method: "get") do %>
+          <%= label_tag(:q, "Search for:", class: "searchformat") %>
+          <%= text_field_tag(:q) %>
+          <%= submit_tag("Search", class: "btn btn-default" ) %>
+          <%end%>
+      </form>
       <ul class="nav pull-right">
-        <li class='field'>
+      <li class='field'>
         <% if user_signed_in? %>
           <%= link_to('Logout', destroy_user_session_path, class: "btn btn-danger", id: "login_btn", :method => :delete) %>
         <% else %>
           <%= link_to('Login', new_user_session_path, class: "btn btn-success", id: "login_btn") %>
         <% end %>
-        </li>
+      </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
   </div><!-- /.container-fluid -->
 </nav>
 <!-- alert notice -->
