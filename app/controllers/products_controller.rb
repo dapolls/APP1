@@ -3,6 +3,9 @@ class ProductsController < ApplicationController
 
   # GET /products
   # GET /products.json
+  def show
+  @comments = @product.comments.order("created_at DESC")
+  end
   def index
     if params[:q]
       search_term = params[:q]
