@@ -29,3 +29,10 @@ def create
   @posts = Post.paginate(:page => params[:page])
 end
 
+def destroy
+  @comment = Comment.find(params[:id])
+  product = @comment.product
+  @comment.destroy
+  redirect_to product
+end
+
