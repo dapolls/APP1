@@ -1,3 +1,17 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#error_explanation li{
+  color: #000;
+}
+#error_explanation {
+  position: center;
+}
+
+.field {
+  position: center;
+}
+
+#new_product {
+  position: center;
+}
