@@ -1,12 +1,15 @@
-<h1>Products available:</h1>
+<p id="notice"><%= notice %></p>
+
+<h1>Products List</h1>
 
 <div class="container-fluid">
   <div class="row">
-    <div class=".col-xs-6 .col-sm-4">
-      <%= render @products %>
-    </div>
-    <div class="col-sm-12">
-      <%= link_to 'New Product', new_product_path, type: "button", class: "btn btn-default" %>
-    </div>
+    <% @products.each do |product| %>
+      <%= render product %>
+    <% end %>
   </div>
-</div>    
+</div>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

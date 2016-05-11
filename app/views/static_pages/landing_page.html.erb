@@ -4,11 +4,12 @@
       <h1>Welcome to Galactic Apples!</h1>
       <h2>Your source for apples from outer space</h2>
       <%= image_tag("apple.png", width: '250', height: '250', alt: 'apple', class: "apple") %>
-
-      <h1>Featured Products</h1>
-      
     </div>
   </div>
+</div>
+
+<div class="feature">
+  <h1>Featured Products</h1>
 </div>
 
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -23,11 +24,8 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <% @products.each do |product| %>
-    <div class="item<%= " active" if product == @products.first %>">
-      <%= image_tag(product.image_url)%>
-      <div class="carousel-caption">
-        <%= product.name %>
-      </div>
+    <div class="item <%= " active" if product == @products.first %>", id='img_caro'>
+      <%= image_tag(product.image_url) %>
     </div>    
     <% end %>
   </div>

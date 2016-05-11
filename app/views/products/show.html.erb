@@ -1,38 +1,37 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="thumbnail">
-        <%= image_tag(@product.image_url, width: "350", class: "img-zoom", data: {zoom_image: @product.image_url}) %>
-      </div>
-    </div>
+<p id="notice"><%= notice %></p>
 
-    <div class="col-sm-6">
-      <h1><span><%= @product.name %></span></h1>
-    </div>
-  </div>
+<div class="container-fluid" id="product_list">
+ <!-- <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-8">  -->
+      <h2><%= @product.name %></h2>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <p><%= @product.description %></p>
-      <p>Colour:<%= @product.color %></p>
-      <p>Average Rating:<div class="rated" data-score="<%= @product.average_rating %>"></div></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <%= render 'products/new_comment' %>
-      <%= render 'comments' %>
-      <div class="apple_pagination" style="margin-top: 50px">
-        <%= will_paginate @comments, :container => false %>
-      </div>
-    </div>
-  </div>
+      <p><strong><i>Average Rating: </i></strong><div class="rated" data-score="<%= @product.average_rating %>"></div></p>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="buttons">
-        <%= link_to 'Edit', edit_product_path(@product), :class => 'btn btn-default' %>
-        <%= link_to 'Back', products_path, :class => 'btn btn-default' %>
-      </div>
-    </div>  
-  </div>
+      <p><strong><%= @product.description %></strong></p>
+
+      <p>
+        <strong>Color:</strong>
+        <%= @product.color %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= number_to_currency @product.price %>
+      </p>
+<!--</div>
+  </div> -->
+<!--   <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4"> -->
+      <%= image_tag(@product.image_url, class: 'product_img') %>
+      <%= render "new_comment" %>
+      
+      <%= render "comments" %>
+      
+      <%= will_paginate @comments %>
+<!-- </div>
+  </div> -->
+      <% if signed_in? && current_user.admin? %>
+      <%= link_to 'Edit', edit_product_path(@product) %> |
+      <% end %>
+      <%= link_to 'Back', products_path %>
+</div>
