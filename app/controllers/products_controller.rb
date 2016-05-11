@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def show
   @comments = @product.comments.order("created_at DESC")
+  @comments = Comment.paginate(:page => params[:page])
   end
   def index
     if params[:q]

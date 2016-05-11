@@ -1,5 +1,6 @@
 <div class="product-reviews">
     <% @comments.each do |comment| %>
+    <%= will_paginate @comments %>
     <div align="center" class="row">
         <hr>
         <p>
