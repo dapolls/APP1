@@ -3,6 +3,7 @@
 <head>
   <title>APP1</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -75,10 +76,69 @@
 
 <%= yield %>
 <!-- footer -->
-<div class="site-footer">
-  <p>&copy; 2015 Sarah</p>
-</div>
+<footer class="footer-distributed">
 
+  <div class="footer-left">
+
+    
+    <h3><%= link_to image_tag("appletext.png", :alt => "apple", class: "navbar-brand nav-link")%></h3>
+    <br>
+    <br>
+    <p class="footer-links">
+      <a href="#">One</a>
+      ·
+      <a href="#">Two</a>
+      ·
+      <a href="#">Three</a>
+      ·
+      <a href="#">Four</a>
+      ·
+      <a href="#">Five</a>
+      ·
+      <a href="#">Six</a>
+    </p>
+
+    <p class="footer-company-name">Galactic Apples &copy; 2016</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>Outer Space 1A</span> The Universe</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+00 000 000</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:support@company.com">support@theuniverse.com</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <p class="footer-company-about">
+      <span>Galatic Apples</span>
+      The best place in the universe to buy apples.
+    </p>
+
+    <div class="footer-icons">
+
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-github"></i></a>
+
+    </div>
+
+  </div>
+
+</footer>
 
 </body>
 </html>

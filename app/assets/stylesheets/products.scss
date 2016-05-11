@@ -8,10 +8,35 @@
   position: center;
 }
 
-.field {
-  position: center;
+#product-menu {
+  margin-top: 25px;
 }
 
-#new_product {
-  position: center;
+.product-img {
+  height: 200px;
+  width: auto;
+}
+
+.new-product {
+  margin-left: 15px;
+  margin-top: 50px;
+}
+
+.new-product a:hover {
+  color: #fff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.new-product a, .new-product a:visited {
+  color: #fff;
+}
+
+.carousel-indicators li {
+  background-color: #fff;
+  border-color: #f9a11b;
+}
+
+.carousel-indicators .active {
+  background-color: #f9a11b;
 }

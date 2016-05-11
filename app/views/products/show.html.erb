@@ -1,40 +1,38 @@
-<div class="container show">
+<div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-4">
-      <img src="<%= @product.image_url %>" alt="<%= @product.name %>" class="img-responsive"/>
+    <div class="col-sm-6">
+      <div class="thumbnail">
+        <%= image_tag(@product.image_url, width: "350", class: "img-zoom", data: {zoom_image: @product.image_url}) %>
+      </div>
     </div>
 
-    <div class="col-xs-12 col-md-8">
-      <h1><%= @product.name %></h1>
-      <p>
-       <%= @product.description %>
-      </p>
-      <p>
-        Colour:
-        <%= @product.color %>
-      </p>
-      <p>
-        Average Rating:
-        <div class="rated" data-score="<%= @product.average_rating %>"></div>
-      </p>
+    <div class="col-sm-6">
+      <h1><span><%= @product.name %></span></h1>
     </div>
   </div>
 
-  <div class="comments">
-    <h1>Comments:</h1>
-    <div class="comment_show">
+  <div class="row">
+    <div class="col-sm-12">
+      <p><%= @product.description %></p>
+      <p>Colour:<%= @product.color %></p>
+      <p>Average Rating:<div class="rated" data-score="<%= @product.average_rating %>"></div></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= render 'products/new_comment' %>
       <%= render 'comments' %>
-    </div>
-    <div class="submit-comment">
-      <%= render 'new_comment' %>
+      <div class="apple_pagination" style="margin-top: 50px">
+        <%= will_paginate @comments, :container => false %>
+      </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="buttons">
-      <%= link_to 'Edit', edit_product_path(@product), :class => 'btn btn-default' %>
-      <%= link_to 'Back', products_path, :class => 'btn btn-default' %>
-    </div>
+    <div class="col-sm-12">
+      <div class="buttons">
+        <%= link_to 'Edit', edit_product_path(@product), :class => 'btn btn-default' %>
+        <%= link_to 'Back', products_path, :class => 'btn btn-default' %>
+      </div>
+    </div>  
   </div>
-  
-</div>
