@@ -1,34 +1,29 @@
 require 'rails_helper'
 
 describe UsersController, :type => :controller do
+
   before do
-    @user = User1.create(:user)
-    @user2 = User2.create(:user)
-    @admin = Admin.create(:admin)
+    @user = FactoryGirl.create(:user)
   end
 
-  describe "GET #show"
+  describe "GET #show" do
     context "User is logged in" do
-      it "displays correct user" do
+      before do
         sign_in @user
+      end
+
+      it "loads correct user details" do
         get :show, id: @user.id
         expect(response).to have_http_status(200)
         expect(assigns(:user)).to eq @user
       end
-
-      it "cannot display different user" do
-        sign_in @user
-        get :show, id: @user2.id
-        expect(response).to have_http_status(302)
-        expect(response).to redirect_to(root_path)
-      end
     end
 
-    context "User is not logged in" do
-      it "redirects to login" do
-        get :show, id: @user.id
-        expect(response).to redirect_to("/users/sign_in")
-      end
+    context "No user is logged in" do
+       it "redirects to sign in" do
+         get :show, id: @user.id
+         expect(response).to redirect_to("/sign_in")
+       end
     end
-
+  end
 end
